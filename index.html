@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Kenjie/Doydoy OS — a personal, student and developer workspace that works offline.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Kenjie/Doydoy OS</title>
+</head>
+<body>
+  <div id="appLoading" class="app-loading"><div class="loading-mark">KD</div><strong>Opening your workspace…</strong><span>Preparing your local data</span></div>
+  <section id="welcomeScreen" class="welcome-screen" aria-label="Welcome to Kenjie/Doydoy OS">
+    <div class="welcome-glow welcome-glow-a"></div>
+    <div class="welcome-glow welcome-glow-b"></div>
+    <div class="welcome-inner">
+      <div class="welcome-brand"><span class="welcome-mark">KD</span><span>Kenjie/Doydoy OS</span></div>
+      <div class="welcome-note">made for the days that get a little messy</div>
+      <h1>One step at a time.<br><span>You’ve got this.</span></h1>
+      <p class="welcome-copy">A small space for school, projects, plans, ideas, and everything in between. You don't have to figure out the whole day right now. Just start with the next thing.</p>
+      <div class="welcome-moments">
+        <div class="welcome-moment"><span>01</span><strong>Start small.</strong><p>One finished task is still progress.</p></div>
+        <div class="welcome-moment"><span>02</span><strong>Keep going.</strong><p>Busy days don't have to be perfect days.</p></div>
+        <div class="welcome-moment"><span>03</span><strong>Make it yours.</strong><p>Keep your notes, plans, and ideas in one place.</p></div>
+      </div>
+      <div class="welcome-actions">
+        <button id="proceedBtn" class="welcome-proceed">Open my workspace <span>→</span></button>
+        <small>Everything stays on this device unless you choose to back it up.</small>
+      </div>
+      <div class="welcome-footer"><span id="welcomeDate"></span><span>local-first · built for everyday use</span></div>
+    </div>
+  </section>
+
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">KD</div>
+        <div><strong>Kenjie/Doydoy</strong><small>Personal OS</small></div>
+      </div>
+      <div class="workspace-chip"><span class="live-dot"></span><div><strong>My workspace</strong><small>Local-first</small></div></div>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-bottom">
+        <button id="themeBtn" class="sidebar-btn">◐ <span>Toggle theme</span></button>
+        <button id="settingsBtn" class="sidebar-btn">⚙ <span>Settings</span></button>
+        <div id="connectionStatus" class="connection-pill">● Offline-ready</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-btn mobile-only" aria-label="Open navigation">☰</button>
+        <div id="pageTitle" class="page-title">Command Center</div>
+        <div class="top-actions">
+          <button id="globalSearchBtn" class="search-btn" aria-label="Search"><span>⌕</span><span class="search-text">Search</span><kbd>Ctrl K</kbd></button>
+          <button id="quickAddBtn" class="icon-btn" aria-label="Quick add">＋</button>
+          <button id="profileBtn" class="avatar" aria-label="Open profile settings">K</button>
+        </div>
+      </header>
+      <section id="app" class="content" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation"></nav>
+  <div id="modalBackdrop" class="overlay hidden"><div id="modal" class="modal" role="dialog" aria-modal="true"></div></div>
+  <div id="searchBackdrop" class="overlay search-overlay hidden"><div class="search-modal"><div class="search-box"><span>⌕</span><input id="searchInput" placeholder="Search anything…" autocomplete="off"><kbd>Esc</kbd></div><div id="searchResults" class="search-results"></div></div></div>
+  <div id="toastStack" class="toast-stack"></div>
+
+  <button id="doydoyFab" class="doydoy-fab" aria-label="Open Doydoy Corner" aria-expanded="false"><span>◡</span><i></i></button>
+  <aside id="doydoyChat" class="doydoy-chat" aria-hidden="true">
+    <div class="chat-head"><div class="chat-avatar">KD</div><div class="grow"><strong>Doydoy Corner</strong><small>just a little corner for your day</small></div><button id="doydoyClose" class="icon-btn" aria-label="Close">×</button></div>
+    <div id="doydoyMessages" class="chat-messages"></div>
+    <div id="doydoyQuick" class="chat-quick"><button data-chat="next">What should I do?</button><button data-chat="today">What's today?</button><button data-chat="reset">Quick reset</button></div>
+    <form id="doydoyForm" class="chat-form"><input id="doydoyInput" maxlength="180" placeholder="Ask about your workspace…"><button class="btn primary" aria-label="Send">↑</button></form>
+  </aside>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
